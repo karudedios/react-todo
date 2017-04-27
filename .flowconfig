@@ -6,7 +6,7 @@
 ./public/
 
 [options]
-module.name_mapper='^stylus/(.*)$' -> '<PROJECT_ROOT>/src/stylus/\1'
-module.name_mapper='^services/(.*)$' -> '<PROJECT_ROOT>/src/services/\1'
+module.name_mapper='^services/\(.*\)$' -> '<PROJECT_ROOT>/src/services/\1'
+module.name_mapper.extension='styl' -> '<PROJECT_ROOT>/flow/StylusModule.js.flow'
 
 munge_underscores=true

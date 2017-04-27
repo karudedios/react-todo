@@ -1,0 +1,68 @@
+@require '../../stylus/variables';
+
+$headerSize = 48px
+
+.todo-list
+  height auto
+  display flex
+
+  margin-left auto
+  margin-right auto
+  padding 20px 30px
+  flex-direction column
+  box-sizing border-box
+  background-color $primary
+
+  @media screen and (max-width 767px) {
+    width 100vw
+  }
+
+  @media screen and (min-width 768px) {
+    width 75vw
+  }
+
+  @media screen and (min-width 1025px) {
+    width 50vw
+  }
+
+  .header
+    width 100%
+
+    h2
+      height $headerSize
+      font-size $headerSize
+      line-height $headerSize
+
+      align-self center
+      text-align center
+      font-weight lighter
+
+  .list-form
+    width 100%
+    display flex
+    flex-direction row
+    justify-content space-between
+
+    input[type=text]
+      width 100%
+      height 45px
+      color $accent
+      padding 3px 7px
+      box-sizing border-box
+      border 1px solid $accent
+      background-color $primary
+
+    button
+      width 90px
+      height 45px
+      color $primary
+      cursor pointer
+      margin-left 10px
+      border 1px solid $accent
+      background-color $accent
+
+      transition all 250ms ease
+
+      &:hover
+        color $accent
+        background-color $primary

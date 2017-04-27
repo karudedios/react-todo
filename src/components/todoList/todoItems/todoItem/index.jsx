@@ -3,10 +3,11 @@
 import './todoItem.styl';
 
 import React from 'react';
+import TodoModel from 'services/todo/todo.model';
 import type { Todo } from 'services/todo/todo.model';
 
 type State = { editMode: boolean };
-type Props = { todo: Todo, onRemove: Todo => void, onUpdate: Todo => void };
+type Props = { todo: TodoModel, onRemove: number => void, onUpdate: (number, Todo) => void };
 
 export default class TodoItem extends React.Component {
   props: Props;
@@ -22,7 +23,7 @@ export default class TodoItem extends React.Component {
     event.stopPropagation();
   }
 
-  editEnd = (event: Event & { target: HTMLInputElement }) => {
+  editEnd = (event: { target: HTMLInputElement }) => {
     this.setState({ ...this.state, editMode: false });
 
     if (this.props.todo.name === event.target.value) return;

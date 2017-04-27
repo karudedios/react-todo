@@ -4,15 +4,16 @@ import './todoItems.styl';
 
 import React from 'react';
 import TodoItem from './todoItem';
+import Model from 'services/todo/todo.model';
 import type { Todo } from 'services/todo/todo.model';
 
-type Props = { todos: Array<Todo>, onRemove: number => void, onUpdate: Todo => void };
+type Props = { todos: Array<Model>, onRemove: number => void, onUpdate: (number, Todo) => void };
 
 export default class TodoItems extends React.Component {
   props: Props;
 
-  remove = (todoId: number) => {
-    this.props.onRemove(todoId);
+  remove = (id: number) => {
+    this.props.onRemove(id);
   }
 
   update = (id: number, changes: Todo) => {
